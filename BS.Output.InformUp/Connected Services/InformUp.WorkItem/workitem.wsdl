@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="UploadFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="f" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iWorkItem" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddWorkItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WorkItemType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddWorkItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddWorkItemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUserLoginName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UploadFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddWorkItemSoapIn">
+    <wsdl:part name="parameters" element="tns:AddWorkItem" />
+  </wsdl:message>
+  <wsdl:message name="AddWorkItemSoapOut">
+    <wsdl:part name="parameters" element="tns:AddWorkItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WorkItemSoap">
+    <wsdl:operation name="UploadFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload file to informUp web server.</wsdl:documentation>
+      <wsdl:input message="tns:UploadFileSoapIn" />
+      <wsdl:output message="tns:UploadFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add work item to informUp web server.</wsdl:documentation>
+      <wsdl:input message="tns:AddWorkItemSoapIn" />
+      <wsdl:output message="tns:AddWorkItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the current version of informUp server.</wsdl:documentation>
+      <wsdl:input message="tns:GetVersionSoapIn" />
+      <wsdl:output message="tns:GetVersionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WorkItemSoap" type="tns:WorkItemSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/UploadFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkItem">
+      <soap:operation soapAction="http://tempuri.org/AddWorkItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction="http://tempuri.org/GetVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WorkItemSoap12" type="tns:WorkItemSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFile">
+      <soap12:operation soapAction="http://tempuri.org/UploadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkItem">
+      <soap12:operation soapAction="http://tempuri.org/AddWorkItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap12:operation soapAction="http://tempuri.org/GetVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WorkItem">
+    <wsdl:port name="WorkItemSoap" binding="tns:WorkItemSoap">
+      <soap:address location="http://saas.informup.com/demo/services/workitem.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WorkItemSoap12" binding="tns:WorkItemSoap12">
+      <soap12:address location="http://saas.informup.com/demo/services/workitem.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

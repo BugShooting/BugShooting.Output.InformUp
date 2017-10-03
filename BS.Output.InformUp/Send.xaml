@@ -1,0 +1,72 @@
+﻿<Window x:Class="BS.Output.InformUp.Send"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:BS.Output.InformUp"
+        x:ClassModifier="internal"
+        mc:Ignorable="d" 
+        Title="Send"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Width="300"
+        SizeToContent="Height">
+
+  <StackPanel Grid.IsSharedSizeScope="True" Margin="4">
+    <TextBlock x:Name="Url" Margin="4" TextWrapping="Wrap" />
+    <Separator Margin="4" />
+    <RadioButton x:Name="NewItem" Content="New item" Margin="4" Checked="NewItem_CheckedChanged" Unchecked="NewItem_CheckedChanged" />
+    <RadioButton x:Name="AttachToItem" Content="Attach to item" Margin="4" />
+    <Grid x:Name="ItemTypeControls" Margin="4">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" SharedSizeGroup="Label"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Label Grid.Column="0">Item type</Label>
+      <ComboBox x:Name="ItemTypeComboBox" Grid.Column="1" SelectedValuePath="Name" local:Validation.Required="True" >
+        <ComboBoxItem Name="Requirement">Requirement</ComboBoxItem>
+        <ComboBoxItem Name="Test">Test</ComboBoxItem>
+        <ComboBoxItem Name="Bug">Bug</ComboBoxItem>
+        <ComboBoxItem Name="Task">Task</ComboBoxItem>
+        <ComboBoxItem Name="Ticket">Ticket</ComboBoxItem>
+      </ComboBox>
+    </Grid>
+    <Grid x:Name="TitleControls" Margin="4">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" SharedSizeGroup="Label"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Label Grid.Column="0">Title</Label>
+      <TextBox x:Name="TitleTextBox" Grid.Column="1" VerticalContentAlignment="Center" local:Validation.Required="True" />
+    </Grid>
+    <Grid x:Name="DescriptionControls" Margin="4">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" SharedSizeGroup="Label"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Label Grid.Column="0">Description</Label>
+      <TextBox x:Name="DescriptionTextBox" Grid.Column="1" VerticalContentAlignment="Center" MaxLines="5" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" local:Validation.Required="True" />
+    </Grid>
+    <Grid x:Name="ItemIDControls" Margin="4">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" SharedSizeGroup="Label"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Label Grid.Column="0">Item ID</Label>
+      <TextBox x:Name="ItemIDTextBox" Grid.Column="1" VerticalContentAlignment="Center" PreviewTextInput="ItemID_PreviewTextInput" local:Validation.Required="True" />
+    </Grid>
+    <Grid Margin="4">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" SharedSizeGroup="Label"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Label Grid.Column="0">File name</Label>
+      <TextBox x:Name="FileNameTextBox" Grid.Column="1" VerticalContentAlignment="Center" local:Validation.Required="True" />
+    </Grid>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0" >
+      <Button x:Name="OK" Width="80" Height="24" Content="OK" Margin="4" IsDefault="True" Click="OK_Click" />
+      <Button Width="80" Height="24" Content="Cancel" Margin="4" IsCancel="True" />
+    </StackPanel>
+  </StackPanel>
+
+</Window>

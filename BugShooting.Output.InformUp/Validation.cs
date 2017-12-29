@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace BS.Output.InformUp
+namespace BugShooting.Output.InformUp
 {
   class Validation
   {

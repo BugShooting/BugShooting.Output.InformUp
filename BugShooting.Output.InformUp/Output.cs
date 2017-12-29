@@ -1,4 +1,6 @@
-﻿namespace BS.Output.InformUp
+﻿using BS.Plugin.V3.Output;
+
+namespace BugShooting.Output.InformUp
 {
 
   public class Output: IOutput 

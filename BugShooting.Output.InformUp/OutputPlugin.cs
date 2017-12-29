@@ -1,13 +1,16 @@
-﻿using BS.Output.InformUp.InformUp.WorkItem;
+﻿using BugShooting.Output.InformUp.InformUp.WorkItem;
 using System;
 using System.Drawing;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BS.Plugin.V3.Output;
+using BS.Plugin.V3.Common;
+using BS.Plugin.V3.Utilities;
 
-namespace BS.Output.InformUp
+namespace BugShooting.Output.InformUp
 {
-  public class OutputAddIn: V3.OutputAddIn<Output>
+  public class OutputPlugin: OutputPlugin<Output>
   {
 
     protected override string Name
@@ -79,41 +82,41 @@ namespace BS.Output.InformUp
 
     }
 
-    protected override OutputValueCollection SerializeOutput(Output Output)
+    protected override OutputValues SerializeOutput(Output Output)
     {
 
-      OutputValueCollection outputValues = new OutputValueCollection();
+      OutputValues outputValues = new OutputValues();
 
-      outputValues.Add(new OutputValue("Name", Output.Name));
-      outputValues.Add(new OutputValue("Url", Output.Url));
-      outputValues.Add(new OutputValue("UserName", Output.UserName));
-      outputValues.Add(new OutputValue("Password",Output.Password, true));
-      outputValues.Add(new OutputValue("OpenItemInBrowser", Convert.ToString(Output.OpenItemInBrowser)));
-      outputValues.Add(new OutputValue("FileName", Output.FileName));
-      outputValues.Add(new OutputValue("FileFormat", Output.FileFormat));
-      outputValues.Add(new OutputValue("LastItemType", Output.LastItemType));
-      outputValues.Add(new OutputValue("LastItemID", Output.LastItemID.ToString()));
+      outputValues.Add("Name", Output.Name);
+      outputValues.Add("Url", Output.Url);
+      outputValues.Add("UserName", Output.UserName);
+      outputValues.Add("Password",Output.Password, true);
+      outputValues.Add("OpenItemInBrowser", Convert.ToString(Output.OpenItemInBrowser));
+      outputValues.Add("FileName", Output.FileName);
+      outputValues.Add("FileFormat", Output.FileFormat);
+      outputValues.Add("LastItemType", Output.LastItemType);
+      outputValues.Add("LastItemID", Output.LastItemID.ToString());
 
       return outputValues;
       
     }
 
-    protected override Output DeserializeOutput(OutputValueCollection OutputValues)
+    protected override Output DeserializeOutput(OutputValues OutputValues)
     {
 
-      return new Output(OutputValues["Name", this.Name].Value,
-                        OutputValues["Url", ""].Value, 
-                        OutputValues["UserName", ""].Value,
-                        OutputValues["Password", ""].Value, 
-                        OutputValues["FileName", "Screenshot"].Value, 
-                        OutputValues["FileFormat", ""].Value,
-                        Convert.ToBoolean(OutputValues["OpenItemInBrowser", Convert.ToString(true)].Value),
-                        OutputValues["LastItemType", string.Empty].Value,
-                        Convert.ToInt32(OutputValues["LastItemID", "1"].Value));
+      return new Output(OutputValues["Name", this.Name],
+                        OutputValues["Url", ""], 
+                        OutputValues["UserName", ""],
+                        OutputValues["Password", ""], 
+                        OutputValues["FileName", "Screenshot"], 
+                        OutputValues["FileFormat", ""],
+                        Convert.ToBoolean(OutputValues["OpenItemInBrowser", Convert.ToString(true)]),
+                        OutputValues["LastItemType", string.Empty],
+                        Convert.ToInt32(OutputValues["LastItemID", "1"]));
 
     }
 
-    protected override async Task<V3.SendResult> Send(IWin32Window Owner, Output Output, V3.ImageData ImageData)
+    protected override async Task<SendResult> Send(IWin32Window Owner, Output Output, ImageData ImageData)
     {
 
       try
@@ -134,7 +137,7 @@ namespace BS.Output.InformUp
         WorkItemSoapClient informUp = new WorkItemSoapClient(binding, new EndpointAddress(Output.Url + "/Services/WorkItem.asmx"));
 
 
-        string fileName = V3.FileHelper.GetFileName(Output.FileName, Output.FileFormat, ImageData);
+        string fileName = AttributeHelper.ReplaceAttributes(Output.FileName, ImageData);
 
 
         // Show send window
@@ -145,7 +148,7 @@ namespace BS.Output.InformUp
 
         if (!send.ShowDialog() == true)
         {
-          return new V3.SendResult(V3.Result.Canceled);
+          return new SendResult(Result.Canceled);
         }
 
 
@@ -168,7 +171,7 @@ namespace BS.Output.InformUp
 
             if (credentials.ShowDialog() != true)
             {
-              return new V3.SendResult(V3.Result.Canceled);
+              return new SendResult(Result.Canceled);
             }
 
             userName = credentials.UserName;
@@ -197,7 +200,7 @@ namespace BS.Output.InformUp
               }
               else
               {
-                return new V3.SendResult(V3.Result.Failed, addWorkItemResult.Body.AddWorkItemResult);
+                return new SendResult(Result.Failed, addWorkItemResult.Body.AddWorkItemResult);
               }
               
             }
@@ -209,40 +212,40 @@ namespace BS.Output.InformUp
             itemID = send.ItemID;
           }
 
-          string fullFileName = String.Format("{0}.{1}", send.FileName, V3.FileHelper.GetFileExtention(Output.FileFormat));
-          byte[] fileBytes = V3.FileHelper.GetFileBytes(Output.FileFormat, ImageData);
+          string fullFileName = String.Format("{0}.{1}", send.FileName, FileHelper.GetFileExtention(Output.FileFormat));
+          byte[] fileBytes = FileHelper.GetFileBytes(Output.FileFormat, ImageData);
 
           UploadFileResponse uploadFileResult = await informUp.UploadFileAsync(userName, password, fileBytes, fullFileName, itemID);
           
           if (!uploadFileResult.Body.UploadFileResult.Equals("OK", StringComparison.InvariantCultureIgnoreCase))
           {
-            return new V3.SendResult(V3.Result.Failed, uploadFileResult.ToString());
+            return new SendResult(Result.Failed, uploadFileResult.ToString());
           }
           
 
           // Open item in browser
           if (Output.OpenItemInBrowser)
           {
-            V3.WebHelper.OpenUrl(String.Format("{0}/Main.aspx?ID={1}&Window=PopupItem", Output.Url, itemID));
+            WebHelper.OpenUrl(String.Format("{0}/Main.aspx?ID={1}&Window=PopupItem", Output.Url, itemID));
           }
           
-          return new V3.SendResult(V3.Result.Success,
-                                    new Output(Output.Name,
-                                              Output.Url,
-                                              (rememberCredentials) ? userName : Output.UserName,
-                                              (rememberCredentials) ? password : Output.Password,
-                                              Output.FileName,
-                                              Output.FileFormat,
-                                              Output.OpenItemInBrowser,
-                                              itemType,
-                                              itemID));
+          return new SendResult(Result.Success,
+                                new Output(Output.Name,
+                                           Output.Url,
+                                           (rememberCredentials) ? userName : Output.UserName,
+                                           (rememberCredentials) ? password : Output.Password,
+                                           Output.FileName,
+                                           Output.FileFormat,
+                                           Output.OpenItemInBrowser,
+                                           itemType,
+                                           itemID));
 
         }
 
       }
       catch (Exception ex)
       {
-        return new V3.SendResult(V3.Result.Failed, ex.Message);
+        return new SendResult(Result.Failed, ex.Message);
       }
 
     }

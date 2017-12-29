@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BS.Output.InformUp.InformUp.WorkItem {
+namespace BugShooting.Output.InformUp.InformUp.WorkItem {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -17,24 +17,24 @@ namespace BS.Output.InformUp.InformUp.WorkItem {
         
         // CODEGEN: Es wird ein Nachrichtenvertrag generiert, da Elementname sUserLoginName aus Namespace http://tempuri.org/ nicht als "nillable" (nullwertfähig) gekennzeichnet ist.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UploadFile", ReplyAction="*")]
-        BS.Output.InformUp.InformUp.WorkItem.UploadFileResponse UploadFile(BS.Output.InformUp.InformUp.WorkItem.UploadFileRequest request);
+        BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileResponse UploadFile(BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UploadFile", ReplyAction="*")]
-        System.Threading.Tasks.Task<BS.Output.InformUp.InformUp.WorkItem.UploadFileResponse> UploadFileAsync(BS.Output.InformUp.InformUp.WorkItem.UploadFileRequest request);
+        System.Threading.Tasks.Task<BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileResponse> UploadFileAsync(BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequest request);
         
         // CODEGEN: Es wird ein Nachrichtenvertrag generiert, da Elementname sUserLoginName aus Namespace http://tempuri.org/ nicht als "nillable" (nullwertfähig) gekennzeichnet ist.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddWorkItem", ReplyAction="*")]
-        BS.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse AddWorkItem(BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest request);
+        BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse AddWorkItem(BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddWorkItem", ReplyAction="*")]
-        System.Threading.Tasks.Task<BS.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse> AddWorkItemAsync(BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest request);
+        System.Threading.Tasks.Task<BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse> AddWorkItemAsync(BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest request);
         
         // CODEGEN: Es wird ein Nachrichtenvertrag generiert, da Elementname sUserLoginName aus Namespace http://tempuri.org/ nicht als "nillable" (nullwertfähig) gekennzeichnet ist.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVersion", ReplyAction="*")]
-        BS.Output.InformUp.InformUp.WorkItem.GetVersionResponse GetVersion(BS.Output.InformUp.InformUp.WorkItem.GetVersionRequest request);
+        BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionResponse GetVersion(BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetVersion", ReplyAction="*")]
-        System.Threading.Tasks.Task<BS.Output.InformUp.InformUp.WorkItem.GetVersionResponse> GetVersionAsync(BS.Output.InformUp.InformUp.WorkItem.GetVersionRequest request);
+        System.Threading.Tasks.Task<BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionResponse> GetVersionAsync(BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -44,12 +44,12 @@ namespace BS.Output.InformUp.InformUp.WorkItem {
     public partial class UploadFileRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="UploadFile", Namespace="http://tempuri.org/", Order=0)]
-        public BS.Output.InformUp.InformUp.WorkItem.UploadFileRequestBody Body;
+        public BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequestBody Body;
         
         public UploadFileRequest() {
         }
         
-        public UploadFileRequest(BS.Output.InformUp.InformUp.WorkItem.UploadFileRequestBody Body) {
+        public UploadFileRequest(BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -94,12 +94,12 @@ namespace BS.Output.InformUp.InformUp.WorkItem {
     public partial class UploadFileResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="UploadFileResponse", Namespace="http://tempuri.org/", Order=0)]
-        public BS.Output.InformUp.InformUp.WorkItem.UploadFileResponseBody Body;
+        public BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileResponseBody Body;
         
         public UploadFileResponse() {
         }
         
-        public UploadFileResponse(BS.Output.InformUp.InformUp.WorkItem.UploadFileResponseBody Body) {
+        public UploadFileResponse(BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -128,12 +128,12 @@ namespace BS.Output.InformUp.InformUp.WorkItem {
     public partial class AddWorkItemRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddWorkItem", Namespace="http://tempuri.org/", Order=0)]
-        public BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequestBody Body;
+        public BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequestBody Body;
         
         public AddWorkItemRequest() {
         }
         
-        public AddWorkItemRequest(BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequestBody Body) {
+        public AddWorkItemRequest(BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -178,12 +178,12 @@ namespace BS.Output.InformUp.InformUp.WorkItem {
     public partial class AddWorkItemResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="AddWorkItemResponse", Namespace="http://tempuri.org/", Order=0)]
-        public BS.Output.InformUp.InformUp.WorkItem.AddWorkItemResponseBody Body;
+        public BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemResponseBody Body;
         
         public AddWorkItemResponse() {
         }
         
-        public AddWorkItemResponse(BS.Output.InformUp.InformUp.WorkItem.AddWorkItemResponseBody Body) {
+        public AddWorkItemResponse(BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -212,12 +212,12 @@ namespace BS.Output.InformUp.InformUp.WorkItem {
     public partial class GetVersionRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="GetVersion", Namespace="http://tempuri.org/", Order=0)]
-        public BS.Output.InformUp.InformUp.WorkItem.GetVersionRequestBody Body;
+        public BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequestBody Body;
         
         public GetVersionRequest() {
         }
         
-        public GetVersionRequest(BS.Output.InformUp.InformUp.WorkItem.GetVersionRequestBody Body) {
+        public GetVersionRequest(BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -250,12 +250,12 @@ namespace BS.Output.InformUp.InformUp.WorkItem {
     public partial class GetVersionResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="GetVersionResponse", Namespace="http://tempuri.org/", Order=0)]
-        public BS.Output.InformUp.InformUp.WorkItem.GetVersionResponseBody Body;
+        public BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionResponseBody Body;
         
         public GetVersionResponse() {
         }
         
-        public GetVersionResponse(BS.Output.InformUp.InformUp.WorkItem.GetVersionResponseBody Body) {
+        public GetVersionResponse(BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -278,12 +278,12 @@ namespace BS.Output.InformUp.InformUp.WorkItem {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface WorkItemSoapChannel : BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap, System.ServiceModel.IClientChannel {
+    public interface WorkItemSoapChannel : BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WorkItemSoapClient : System.ServiceModel.ClientBase<BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap>, BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap {
+    public partial class WorkItemSoapClient : System.ServiceModel.ClientBase<BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap>, BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap {
         
         public WorkItemSoapClient() {
         }
@@ -305,96 +305,96 @@ namespace BS.Output.InformUp.InformUp.WorkItem {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        BS.Output.InformUp.InformUp.WorkItem.UploadFileResponse BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap.UploadFile(BS.Output.InformUp.InformUp.WorkItem.UploadFileRequest request) {
+        BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileResponse BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap.UploadFile(BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequest request) {
             return base.Channel.UploadFile(request);
         }
         
         public string UploadFile(string sUserLoginName, string sUserPassword, byte[] f, string fileName, int iWorkItem) {
-            BS.Output.InformUp.InformUp.WorkItem.UploadFileRequest inValue = new BS.Output.InformUp.InformUp.WorkItem.UploadFileRequest();
-            inValue.Body = new BS.Output.InformUp.InformUp.WorkItem.UploadFileRequestBody();
+            BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequest inValue = new BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequest();
+            inValue.Body = new BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequestBody();
             inValue.Body.sUserLoginName = sUserLoginName;
             inValue.Body.sUserPassword = sUserPassword;
             inValue.Body.f = f;
             inValue.Body.fileName = fileName;
             inValue.Body.iWorkItem = iWorkItem;
-            BS.Output.InformUp.InformUp.WorkItem.UploadFileResponse retVal = ((BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).UploadFile(inValue);
+            BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileResponse retVal = ((BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).UploadFile(inValue);
             return retVal.Body.UploadFileResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<BS.Output.InformUp.InformUp.WorkItem.UploadFileResponse> BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap.UploadFileAsync(BS.Output.InformUp.InformUp.WorkItem.UploadFileRequest request) {
+        System.Threading.Tasks.Task<BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileResponse> BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap.UploadFileAsync(BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequest request) {
             return base.Channel.UploadFileAsync(request);
         }
         
-        public System.Threading.Tasks.Task<BS.Output.InformUp.InformUp.WorkItem.UploadFileResponse> UploadFileAsync(string sUserLoginName, string sUserPassword, byte[] f, string fileName, int iWorkItem) {
-            BS.Output.InformUp.InformUp.WorkItem.UploadFileRequest inValue = new BS.Output.InformUp.InformUp.WorkItem.UploadFileRequest();
-            inValue.Body = new BS.Output.InformUp.InformUp.WorkItem.UploadFileRequestBody();
+        public System.Threading.Tasks.Task<BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileResponse> UploadFileAsync(string sUserLoginName, string sUserPassword, byte[] f, string fileName, int iWorkItem) {
+            BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequest inValue = new BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequest();
+            inValue.Body = new BugShooting.Output.InformUp.InformUp.WorkItem.UploadFileRequestBody();
             inValue.Body.sUserLoginName = sUserLoginName;
             inValue.Body.sUserPassword = sUserPassword;
             inValue.Body.f = f;
             inValue.Body.fileName = fileName;
             inValue.Body.iWorkItem = iWorkItem;
-            return ((BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).UploadFileAsync(inValue);
+            return ((BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).UploadFileAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        BS.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap.AddWorkItem(BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest request) {
+        BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap.AddWorkItem(BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest request) {
             return base.Channel.AddWorkItem(request);
         }
         
         public string AddWorkItem(string sUserLoginName, string sUserPassword, string WorkItemType, string Title, string Description) {
-            BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest inValue = new BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest();
-            inValue.Body = new BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequestBody();
+            BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest inValue = new BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest();
+            inValue.Body = new BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequestBody();
             inValue.Body.sUserLoginName = sUserLoginName;
             inValue.Body.sUserPassword = sUserPassword;
             inValue.Body.WorkItemType = WorkItemType;
             inValue.Body.Title = Title;
             inValue.Body.Description = Description;
-            BS.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse retVal = ((BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).AddWorkItem(inValue);
+            BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse retVal = ((BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).AddWorkItem(inValue);
             return retVal.Body.AddWorkItemResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<BS.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse> BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap.AddWorkItemAsync(BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest request) {
+        System.Threading.Tasks.Task<BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse> BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap.AddWorkItemAsync(BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest request) {
             return base.Channel.AddWorkItemAsync(request);
         }
         
-        public System.Threading.Tasks.Task<BS.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse> AddWorkItemAsync(string sUserLoginName, string sUserPassword, string WorkItemType, string Title, string Description) {
-            BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest inValue = new BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest();
-            inValue.Body = new BS.Output.InformUp.InformUp.WorkItem.AddWorkItemRequestBody();
+        public System.Threading.Tasks.Task<BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemResponse> AddWorkItemAsync(string sUserLoginName, string sUserPassword, string WorkItemType, string Title, string Description) {
+            BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest inValue = new BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequest();
+            inValue.Body = new BugShooting.Output.InformUp.InformUp.WorkItem.AddWorkItemRequestBody();
             inValue.Body.sUserLoginName = sUserLoginName;
             inValue.Body.sUserPassword = sUserPassword;
             inValue.Body.WorkItemType = WorkItemType;
             inValue.Body.Title = Title;
             inValue.Body.Description = Description;
-            return ((BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).AddWorkItemAsync(inValue);
+            return ((BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).AddWorkItemAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        BS.Output.InformUp.InformUp.WorkItem.GetVersionResponse BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap.GetVersion(BS.Output.InformUp.InformUp.WorkItem.GetVersionRequest request) {
+        BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionResponse BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap.GetVersion(BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequest request) {
             return base.Channel.GetVersion(request);
         }
         
         public string GetVersion(string sUserLoginName, string sUserPassword) {
-            BS.Output.InformUp.InformUp.WorkItem.GetVersionRequest inValue = new BS.Output.InformUp.InformUp.WorkItem.GetVersionRequest();
-            inValue.Body = new BS.Output.InformUp.InformUp.WorkItem.GetVersionRequestBody();
+            BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequest inValue = new BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequest();
+            inValue.Body = new BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequestBody();
             inValue.Body.sUserLoginName = sUserLoginName;
             inValue.Body.sUserPassword = sUserPassword;
-            BS.Output.InformUp.InformUp.WorkItem.GetVersionResponse retVal = ((BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).GetVersion(inValue);
+            BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionResponse retVal = ((BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).GetVersion(inValue);
             return retVal.Body.GetVersionResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<BS.Output.InformUp.InformUp.WorkItem.GetVersionResponse> BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap.GetVersionAsync(BS.Output.InformUp.InformUp.WorkItem.GetVersionRequest request) {
+        System.Threading.Tasks.Task<BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionResponse> BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap.GetVersionAsync(BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequest request) {
             return base.Channel.GetVersionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<BS.Output.InformUp.InformUp.WorkItem.GetVersionResponse> GetVersionAsync(string sUserLoginName, string sUserPassword) {
-            BS.Output.InformUp.InformUp.WorkItem.GetVersionRequest inValue = new BS.Output.InformUp.InformUp.WorkItem.GetVersionRequest();
-            inValue.Body = new BS.Output.InformUp.InformUp.WorkItem.GetVersionRequestBody();
+        public System.Threading.Tasks.Task<BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionResponse> GetVersionAsync(string sUserLoginName, string sUserPassword) {
+            BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequest inValue = new BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequest();
+            inValue.Body = new BugShooting.Output.InformUp.InformUp.WorkItem.GetVersionRequestBody();
             inValue.Body.sUserLoginName = sUserLoginName;
             inValue.Body.sUserPassword = sUserPassword;
-            return ((BS.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).GetVersionAsync(inValue);
+            return ((BugShooting.Output.InformUp.InformUp.WorkItem.WorkItemSoap)(this)).GetVersionAsync(inValue);
         }
     }
 }

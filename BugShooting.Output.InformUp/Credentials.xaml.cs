@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace BS.Output.InformUp
+namespace BugShooting.Output.InformUp
 {
   partial class Credentials : Window
   {

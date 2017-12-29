@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 
-namespace BS.Output.InformUp
+namespace BugShooting.Output.InformUp
 {
   partial class Send : Window
   {

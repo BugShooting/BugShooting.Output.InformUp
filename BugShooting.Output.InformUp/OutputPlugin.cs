@@ -212,7 +212,7 @@ namespace BugShooting.Output.InformUp
             itemID = send.ItemID;
           }
 
-          string fullFileName = String.Format("{0}.{1}", send.FileName, FileHelper.GetFileExtention(Output.FileFormat));
+          string fullFileName = String.Format("{0}.{1}", send.FileName, FileHelper.GetFileExtension(Output.FileFormat));
           byte[] fileBytes = FileHelper.GetFileBytes(Output.FileFormat, ImageData);
 
           UploadFileResponse uploadFileResult = await informUp.UploadFileAsync(userName, password, fileBytes, fullFileName, itemID);

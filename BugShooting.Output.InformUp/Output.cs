@@ -1,4 +1,5 @@
 ﻿using BS.Plugin.V3.Output;
+using System;
 
 namespace BugShooting.Output.InformUp
 {
@@ -11,7 +12,7 @@ namespace BugShooting.Output.InformUp
     string userName;
     string password;
     string fileName;
-    string fileFormat;
+    Guid fileFormatID;
     bool openItemInBrowser;
     string lastItemType;
     int lastItemID;
@@ -20,8 +21,8 @@ namespace BugShooting.Output.InformUp
                   string url, 
                   string userName,
                   string password, 
-                  string fileName, 
-                  string fileFormat,
+                  string fileName,
+                  Guid fileFormatID,
                   bool openItemInBrowser, 
                   string lastItemType, 
                   int lastItemID)
@@ -31,7 +32,7 @@ namespace BugShooting.Output.InformUp
       this.userName = userName;
       this.password = password;
       this.fileName = fileName;
-      this.fileFormat = fileFormat;
+      this.fileFormatID = fileFormatID;
       this.openItemInBrowser = openItemInBrowser;
       this.lastItemType = lastItemType;
       this.lastItemID = lastItemID;
@@ -67,9 +68,9 @@ namespace BugShooting.Output.InformUp
       get { return fileName; }
     }
 
-    public string FileFormat
+    public Guid FileFormatID
     {
-      get { return fileFormat; }
+      get { return fileFormatID; }
     }
 
     public bool OpenItemInBrowser

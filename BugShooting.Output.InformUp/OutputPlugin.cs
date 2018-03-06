@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using BS.Plugin.V3.Output;
 using BS.Plugin.V3.Common;
 using BS.Plugin.V3.Utilities;
+using System.Linq;
 
 namespace BugShooting.Output.InformUp
 {
@@ -46,7 +47,7 @@ namespace BugShooting.Output.InformUp
                                  String.Empty, 
                                  String.Empty, 
                                  "Screenshot",
-                                 String.Empty, 
+                                 FileHelper.GetFileFormats().First().ID,
                                  true,
                                  String.Empty,
                                  1);
@@ -70,7 +71,7 @@ namespace BugShooting.Output.InformUp
                           edit.UserName,
                           edit.Password,
                           edit.FileName,
-                          edit.FileFormat,
+                          edit.FileFormatID,
                           edit.OpenItemInBrowser,
                           Output.LastItemType,
                           Output.LastItemID);
@@ -93,7 +94,7 @@ namespace BugShooting.Output.InformUp
       outputValues.Add("Password",Output.Password, true);
       outputValues.Add("OpenItemInBrowser", Convert.ToString(Output.OpenItemInBrowser));
       outputValues.Add("FileName", Output.FileName);
-      outputValues.Add("FileFormat", Output.FileFormat);
+      outputValues.Add("FileFormatID", Output.FileFormatID.ToString());
       outputValues.Add("LastItemType", Output.LastItemType);
       outputValues.Add("LastItemID", Output.LastItemID.ToString());
 
@@ -108,8 +109,8 @@ namespace BugShooting.Output.InformUp
                         OutputValues["Url", ""], 
                         OutputValues["UserName", ""],
                         OutputValues["Password", ""], 
-                        OutputValues["FileName", "Screenshot"], 
-                        OutputValues["FileFormat", ""],
+                        OutputValues["FileName", "Screenshot"],
+                        new Guid(OutputValues["FileFormatID", ""]),
                         Convert.ToBoolean(OutputValues["OpenItemInBrowser", Convert.ToString(true)]),
                         OutputValues["LastItemType", string.Empty],
                         Convert.ToInt32(OutputValues["LastItemID", "1"]));
@@ -212,8 +213,10 @@ namespace BugShooting.Output.InformUp
             itemID = send.ItemID;
           }
 
-          string fullFileName = String.Format("{0}.{1}", send.FileName, FileHelper.GetFileExtension(Output.FileFormat));
-          byte[] fileBytes = FileHelper.GetFileBytes(Output.FileFormat, ImageData);
+          IFileFormat fileFormat = FileHelper.GetFileFormat(Output.FileFormatID);
+
+          string fullFileName = String.Format("{0}.{1}", send.FileName, fileFormat.FileExtension);
+          byte[] fileBytes = FileHelper.GetFileBytes(Output.FileFormatID, ImageData);
 
           UploadFileResponse uploadFileResult = await informUp.UploadFileAsync(userName, password, fileBytes, fullFileName, itemID);
           
@@ -235,7 +238,7 @@ namespace BugShooting.Output.InformUp
                                            (rememberCredentials) ? userName : Output.UserName,
                                            (rememberCredentials) ? password : Output.Password,
                                            Output.FileName,
-                                           Output.FileFormat,
+                                           Output.FileFormatID,
                                            Output.OpenItemInBrowser,
                                            itemType,
                                            itemID));
